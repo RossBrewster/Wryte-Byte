@@ -6,7 +6,9 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "build": "nest build",
+    "build:client": "cd wryte-byte && npm run build && cp -r dist ../dist/client",
+    "build:server": "nest build",
+    "build": "npm run build:server && npm run build:client",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
@@ -23,6 +25,7 @@
     "@nestjs/common": "^10.0.0",
     "@nestjs/core": "^10.0.0",
     "@nestjs/platform-express": "^10.0.0",
+    "@nestjs/serve-static": "^4.0.2",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1"
   },
