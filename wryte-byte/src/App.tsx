@@ -3,9 +3,9 @@ import './App.css'
 
 function App() {
   return (
-    <div className="min-h-screen w-full justify-center">
+    <span className="min-h-screen w-full justify-center">
       <HomePage />
-    </div>
+    </span>
   )
 }
 
