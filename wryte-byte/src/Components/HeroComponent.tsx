@@ -50,11 +50,11 @@ export const Logo: React.FC<LogoProps> = ({ onButtonClick, buttons }) => {
       : (Math.pow(2 * t - 2, 2) * ((c2 + 1) * (t * 2 - 2) + c2) + 2) / 2;
   }, []);
 
-  const handleLogoClick = useCallback((e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setLogoState((prevState) => (prevState === 'w' ? 'hamburger' : 'w'));
-  }, []);
+  // const handleLogoClick = useCallback((e: React.MouseEvent) => {
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   setLogoState((prevState) => (prevState === 'w' ? 'hamburger' : 'w'));
+  // }, []);
 
   const handleButtonClick = useCallback(
     (buttonText: string, e: React.MouseEvent) => {
@@ -119,44 +119,51 @@ export const Logo: React.FC<LogoProps> = ({ onButtonClick, buttons }) => {
     return () => clearTimeout(timer);
   }, [logoState, animateLogo]);
 
+  const handleStaticClick = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    setLogoState("w")
+  }, []);
+
   return (
-    <div className="w-full max-w-md mx-auto cursor-pointer flex items-center justify-center mt-8 sm:mt-16 md:mt-24 lg:mt-32">
-      <svg
-        ref={logoRef}
-        className="w-full h-auto"
-        viewBox="-10 -10 120 120"
-        preserveAspectRatio="xMidYMid meet">
-        {buttons.map((button, index) => (
-          <g
-            key={index}
-            className="leg cursor-pointer"
-            onClick={(e) =>
-              logoState === 'hamburger'
-                ? handleLogoClick(e)
-                : handleButtonClick(button.text, e)
-            }>
-            <path
-              strokeWidth="18"
-              strokeLinecap="round"
-              fill="none"
-              stroke={button.color}
-            />
-            <text
-              x="50"
-              y={22.5 + index * 19}
-              textAnchor="middle"
-              dominantBaseline="middle"
-              fill={button.text === 'Sign Up' ? '#000000' : '#ffffff'}
-              fontSize="10"
-              fontFamily="Arial, sans-serif"
-              className={`button-text ${
-                isTextVisible ? 'opacity-100' : 'opacity-0'
-              } transition-opacity duration-300 pointer-events-none`}>
-              {button.text}
-            </text>
-          </g>
-        ))}
-      </svg>
+    <div className='w-full mx-auto'>
+      <div className="w-32 mx-auto bg-[#111827]">
+        <svg
+          ref={logoRef}
+          className="w-full h-auto"
+          viewBox="-10 -10 120 120"
+          preserveAspectRatio="xMidYMid meet">
+          {buttons.map((button, index) => (
+            <g
+              key={index}
+              className="leg"
+              onClick={(e) =>
+                logoState === 'hamburger'
+                ? handleButtonClick(button.text, e)
+                : handleStaticClick(e)
+              }>
+              <path
+                strokeWidth="18"
+                strokeLinecap="round"
+                fill="none"
+                stroke={button.color}
+              />
+              <text
+                x="50"
+                y={22.5 + index * 19}
+                textAnchor="middle"
+                dominantBaseline="middle"
+                fill={button.text === 'Sign Up' ? '#000000' : '#ffffff'}
+                fontSize="10"
+                fontFamily="Arial, sans-serif"
+                className={`button-text ${
+                  isTextVisible ? 'opacity-100' : 'opacity-0'
+                } transition-opacity duration-300 pointer-events-none`}>
+                {button.text}
+              </text>
+            </g>
+          ))}
+        </svg>
+      </div>
     </div>
   );
 };
