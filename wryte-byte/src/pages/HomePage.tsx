@@ -5,17 +5,9 @@ function onButtonClick(){
     console.log("Wryte-Byte")
 }
 
-const buttons = [
-    { text: 'Teachers', color: '#EA4335' },
-    { text: 'Students', color: '#34A853' },
-    { text: 'Sign Up', color: '#FBBC05' },
-    { text: 'About Us', color: '#4285F4' },
-  ];
-
-
 
 const aboutUsContent: ContentItem[] = [
-{ type: 'h5', content: "We're not just changing how writing is assessed. We're revolutionizing education." },
+{ type: 'h5', content: "We're not just changing how writing assessment is managed. We're revolutionizing education." },
 { type: 'p', content: "At Wryte-Hype, we believe in the power of words and the potential of every student. Our AI-powered writing assessment tool isn't just smart—it's intuitive, empowering, and transformative." },
 { type: 'h5', content: 'Our Mission' },
 { type: 'p', content: 'To unlock the full potential of student writing, one sentence at a time.' },
@@ -29,25 +21,51 @@ const aboutUsContent: ContentItem[] = [
 { type: 'p', content: "Welcome to the future of education. Welcome to Wryte-Hype."}
 ];
 
+const buttons = [
+    { text: 'Teachers', color: '#EA4335' },
+    { text: 'Students', color: '#34A853' },
+    { text: 'Sign Up', color: '#FBBC05' },
+    { text: 'About Us', color: '#4285F4' },
+];
+
+interface TypingSpeed {
+    heading: number;
+    paragraph: number;
+    backspace: number;
+    subHeading: number;
+  };
+
+const speed : TypingSpeed = {
+    heading : 70,
+    paragraph :  2,
+    backspace: 1,
+    subHeading: 10
+}
+
 export function HomePage(){
     return (
         <div className="w-full min-h-screen">
-            <div>
+            <div className="pt-10">
                 <Logo onButtonClick={onButtonClick} buttons={buttons}/>
             </div>
-            <div className="min-w-96 mt-32">
+            <div className="min-w-96 mt-20 pb-10">
                 <TypedText 
                     isVisible={true}
                     isDarkMode={true}
                     content={[{ type: 'h1', content: 'Wryte-Hype' }]}
+                    blinking={false}
+                    typingSpeed = {speed}
                 />
-                <TypedText
-                    isVisible={true}
-                    isDarkMode={true}
-                    content={aboutUsContent}
-                    initialDelay={2500}
-                    blinking={true}
-                />
+                <span>
+                    <TypedText
+                        isVisible={true}
+                        isDarkMode={true}
+                        content={aboutUsContent}
+                        initialDelay={2500}
+                        typingSpeed={speed}
+                        blinking={true}
+                    />
+                </span>
             </div>
         </div>
     )
