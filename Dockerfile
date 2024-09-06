@@ -3,8 +3,10 @@ FROM node:18-alpine AS build
 WORKDIR /usr/src/app
 
 COPY package*.json ./
+COPY wryte-byte/package*.json ./wryte-byte/
 
 RUN npm ci
+RUN cd wryte-byte && npm ci
 
 COPY . .
 
