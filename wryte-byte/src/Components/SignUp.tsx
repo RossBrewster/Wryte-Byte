@@ -12,7 +12,7 @@ const DynamicSignUp: React.FC = () => {
   const [isFormVisible, setIsFormVisible] = useState<boolean>(false);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [formData, setFormData] = useState<FormData>({ name: '', email: '' });
-  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [, setIsVisible] = useState<boolean>(false);
   const [isReady, setIsReady] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const controls = useAnimation();

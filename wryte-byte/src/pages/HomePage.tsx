@@ -1,10 +1,7 @@
-import DynamicSignUp from "../Components/dynamic-sign-up/DynamicSignUp";
-import {Logo} from "../Components/HeroComponent"
 import { TypedText, ContentItem } from "../Components//TypedText";
-
-function onButtonClick(){
-    console.log("Wryte-Byte")
-}
+import EducationServicesGrid from "../Components/ServiceList";
+import ButtonGrid from "../Components/ButtonGrid"
+import {Block} from "../Components/shared/logo/Block"
 
 
 const aboutUsContent: ContentItem[] = [
@@ -22,12 +19,6 @@ const aboutUsContent: ContentItem[] = [
 { type: 'p', content: "Welcome to the future of education. Welcome to Writer Block"}
 ];
 
-const buttons = [
-    { text: 'Teachers', color: '#EA4335' },
-    { text: 'Students', color: '#34A853' },
-    { text: 'Sign Up', color: '#FBBC05' },
-    { text: 'About Us', color: '#4285F4' },
-];
 
 interface TypingSpeed {
     heading: number;
@@ -43,18 +34,19 @@ const speed : TypingSpeed = {
     subHeading: 5
 }
 
+
 export function HomePage(){
     return (
-        <div className="w-full min-h-screen">
-            <div className="pt-10">
-                <Logo onButtonClick={onButtonClick} buttons={buttons}/>
+        <div className="w-full min-h-screen pb-16">
+            <div className="pt-10 w-full flex justify-center">
+            <Block />
             </div>
-            <div className="min-w-96 mt-20 pb-10">
+            <div className="min-w-96 mt-20 pb-6">
                 <div>
                     <TypedText 
                         isVisible={true}
                         isDarkMode={true}
-                        content={[{ type: 'h1', content: 'Writer - Block ' }]}
+                        content={[{ type: 'h1', content: 'Writer - Block' }]}
                         blinking={false}
                         typingSpeed = {speed}
                     />
@@ -70,7 +62,16 @@ export function HomePage(){
                     />
                 </span>
             </div>
-            <DynamicSignUp />
+            {/* <div className="flex justify-center gap-4" >
+                <IndustryCard 
+                    baseHue={180}
+                    title="Excited for what's coming?"
+                    description="Sign up for our waitlist"
+                />
+            </div>
+            <CardGrid /> */}
+            <EducationServicesGrid />
+            <ButtonGrid />
         </div>
     )
 }
