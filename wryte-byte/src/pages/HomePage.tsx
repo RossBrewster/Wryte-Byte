@@ -1,5 +1,6 @@
+import DynamicSignUp from "../Components/dynamic-sign-up/DynamicSignUp";
 import {Logo} from "../Components/HeroComponent"
-import { TypedText, ContentItem } from "../Components/TypedText";
+import { TypedText, ContentItem } from "../Components//TypedText";
 
 function onButtonClick(){
     console.log("Wryte-Byte")
@@ -37,9 +38,9 @@ interface TypingSpeed {
 
 const speed : TypingSpeed = {
     heading : 70,
-    paragraph :  2,
+    paragraph :  1,
     backspace: 1,
-    subHeading: 10
+    subHeading: 5
 }
 
 export function HomePage(){
@@ -69,6 +70,7 @@ export function HomePage(){
                     />
                 </span>
             </div>
+            <DynamicSignUp />
         </div>
     )
 }
