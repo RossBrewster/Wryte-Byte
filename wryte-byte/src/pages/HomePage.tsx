@@ -1,5 +1,6 @@
+import DynamicSignUp from "../Components/dynamic-sign-up/DynamicSignUp";
 import {Logo} from "../Components/HeroComponent"
-import { TypedText, ContentItem } from "../Components/TypedText";
+import { TypedText, ContentItem } from "../Components//TypedText";
 
 function onButtonClick(){
     console.log("Wryte-Byte")
@@ -8,7 +9,7 @@ function onButtonClick(){
 
 const aboutUsContent: ContentItem[] = [
 { type: 'h5', content: "We're not just changing how writing assessment is managed. We're revolutionizing education." },
-{ type: 'p', content: "At Wryte-Hype, we believe in the power of words and the potential of every student. Our AI-powered writing assessment tool isn't just smart—it's intuitive, empowering, and transformative." },
+{ type: 'p', content: "At Writer Block, we believe in the power of words and the potential of every student. Our AI-powered writing assessment tool isn't just smart—it's intuitive, empowering, and transformative." },
 { type: 'h5', content: 'Our Mission' },
 { type: 'p', content: 'To unlock the full potential of student writing, one sentence at a time.' },
 { type: 'h5', content: 'What we do'},
@@ -18,7 +19,7 @@ const aboutUsContent: ContentItem[] = [
 { type: 'p', content: "In a world where communication is key, we're equipping students with the tools they need to express themselves clearly, confidently, and creatively."},
 { type: 'h5', content: "Stay tuned for Updates"},
 { type: 'p', content: "Get ready to experience the future of writing assessment. It's not just faster. It's not just smarter. It's a whole new way to learn, grow, and achieve."},
-{ type: 'p', content: "Welcome to the future of education. Welcome to Wryte-Hype."}
+{ type: 'p', content: "Welcome to the future of education. Welcome to Writer Block"}
 ];
 
 const buttons = [
@@ -37,9 +38,9 @@ interface TypingSpeed {
 
 const speed : TypingSpeed = {
     heading : 70,
-    paragraph :  2,
+    paragraph :  1,
     backspace: 1,
-    subHeading: 10
+    subHeading: 5
 }
 
 export function HomePage(){
@@ -49,13 +50,15 @@ export function HomePage(){
                 <Logo onButtonClick={onButtonClick} buttons={buttons}/>
             </div>
             <div className="min-w-96 mt-20 pb-10">
-                <TypedText 
-                    isVisible={true}
-                    isDarkMode={true}
-                    content={[{ type: 'h1', content: 'Wryte-Hype' }]}
-                    blinking={false}
-                    typingSpeed = {speed}
-                />
+                <div>
+                    <TypedText 
+                        isVisible={true}
+                        isDarkMode={true}
+                        content={[{ type: 'h1', content: 'Writer - Block ' }]}
+                        blinking={false}
+                        typingSpeed = {speed}
+                    />
+                </div>
                 <span>
                     <TypedText
                         isVisible={true}
@@ -67,6 +70,7 @@ export function HomePage(){
                     />
                 </span>
             </div>
+            <DynamicSignUp />
         </div>
     )
 }
