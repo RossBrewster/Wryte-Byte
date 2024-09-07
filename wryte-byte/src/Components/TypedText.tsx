@@ -121,7 +121,7 @@ export const TypedText: React.FC<TypedTextProps> = ({
                 key={index}
                 className={`flex flex-wrap ${isDarkMode ? 'text-white' : 'text-black'} ${
                 item.type === 'h1'
-                    ? ' justify-center text-[48px] sm:text-[56px] md:text-[64px] lg:text-[72px] font-bold font-["Saira",_sans-serif] mt-8 mb-16 leading-tight text-center'
+                    ? ' justify-center text-[48px] sm:text-[56px] md:text-[64px] lg:text-[6rem] font-bold font-["Saira",_sans-serif] mt-8 mb-16 leading-tight text-center'
                     : item.type === 'h5'
                     ? 'text-[32px] sm:text-[28px] md:text-[32px] lg:text-[40px] font-semibold font-["Saira",_sans-serif] mb-8 mt-8 leading-tight'
                     : 'text-base sm:text-lg md:text-xl font-normal font-[sans-serif] whitespace-pre-line leading-relaxed mt-4'
